@@ -7,12 +7,14 @@ export default function MainSing(props) {
   return (
     <View style={styles.block_container}>
         <View></View>
+
         <View>
             <Text></Text>
         </View>
+
         <View></View>
 
-      {props.children}
+        {props.children}
     </View>
   )
 }
