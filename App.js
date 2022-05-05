@@ -1,18 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { AppLoading } from "expo-app-loading";
 import SingIn from './page/auth/singIn/SingIn';
+import { 
+  useFonts,
+  Rubik_300Light,
+  Rubik_400Regular,
+  Rubik_500Medium,
+  Rubik_700Bold,
+} from '@expo-google-fonts/rubik'
+
 
 export default function App() {
-  return (
-    <SingIn/>
-  );
+
+  let [fontsLoaded] = useFonts({
+    Rubik_300Light,
+    Rubik_400Regular,
+    Rubik_500Medium,
+    Rubik_700Bold,
+  });
+
+  // if (!fontsLoaded) {
+  //   return <AppLoading onError={console.warn()}/>;
+  // } else {
+    return (
+      <SingIn/>
+    );
+  // }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
