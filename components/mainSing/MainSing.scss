@@ -1,0 +1,11 @@
+@import  '../../assets/colors/colors';
+
+
+.block_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: $dark;
+    justify-content: center;
+    align-items: center;
+}
