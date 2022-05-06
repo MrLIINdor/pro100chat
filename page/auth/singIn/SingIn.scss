@@ -1,0 +1,16 @@
+@import  '../../../assets/colors/colors';
+
+
+.title_sinup{
+    font-family: 'Rubik_500Medium';
+    font-size: 15px;
+    color: $green;
+}
+
+
+.block_sinup{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
