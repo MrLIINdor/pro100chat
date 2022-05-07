@@ -17,8 +17,7 @@ export default function navigate({navigation}) {
             component={SingIn}
             options={{
                 title: '',
-                // headerShadowEnabled: false,
-                headerStyle: {backgroundColor: '#444757'},
+                headerStyle: {backgroundColor: '#444757', shadowColor: "#444757"},
             }} />
 
         <Stack.Screen
@@ -26,11 +25,11 @@ export default function navigate({navigation}) {
             component={SingUp}
             options={{
                 title: 'Регистрация',
-                // cardStyle: {backgroundColor: '#fff'},
-                // headerShadowEnabled: true,
-                headerStyle: {backgroundColor: '#2E303E'},
+                headerStyle: {backgroundColor: '#2E303E', shadowColor: '#2E303E'},
                 headerTintColor: '#01CC8E',
                 headerTitleStyle: {fontSize: 17, color: '#01CC8E'},
+                // cardStyle: {backgroundColor: '#fff'},
+                // headerShadowEnabled: true,
             }}/> 
 
 
