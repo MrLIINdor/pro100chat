@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text, TextInput } from 'react-native'
 import  AppLoading  from "expo-app-loading";
-import SingIn from './page/auth/singIn/SingIn';
+import NavigateMenu  from "./router/navigate";
+
 import { 
   useFonts,
   Rubik_300Light,
@@ -26,7 +27,7 @@ export default function App() {
   
   if(fontsLoaded) {
     return (
-      <SingIn/> 
+      <NavigateMenu/> 
     )
 
   } else {

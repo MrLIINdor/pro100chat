@@ -6,7 +6,7 @@
     padding: 15px;
     background-color: $dark;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .input{
@@ -65,4 +65,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.block_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
