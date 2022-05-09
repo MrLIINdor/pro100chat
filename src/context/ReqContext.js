@@ -27,8 +27,8 @@ export default function ReqContext() {
     }
 
   return (
-    <View>
+    <LocalContext.Provider value={'ttt'}>
       <Text>ReqContext</Text>
-    </View>
+    </LocalContext.Provider>
   )
 }

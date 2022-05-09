@@ -1,5 +1,4 @@
 import { View, Text } from 'react-native'
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react'
 import MainSing from '../../../components/mainSing/MainSing'
 
@@ -26,7 +25,6 @@ export default function SingUp() {
       password={password}
       onChangePassword={onChangePassword}>
 
-        <StatusBar style="light" />
 
     </MainSing>
   )

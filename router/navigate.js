@@ -17,8 +17,8 @@ export default function navigate({navigation}) {
             component={SingIn}
             options={{
                 title: '',
-                headerStyle: {backgroundColor: '#444757', shadowColor: "#444757"},
-            }} />
+                headerShown: false,
+            }}/>
 
         <Stack.Screen
             name='SingUp'
@@ -28,8 +28,6 @@ export default function navigate({navigation}) {
                 headerStyle: {backgroundColor: '#2E303E', shadowColor: '#2E303E'},
                 headerTintColor: '#01CC8E',
                 headerTitleStyle: {fontSize: 17, color: '#01CC8E'},
-                // cardStyle: {backgroundColor: '#fff'},
-                // headerShadowEnabled: true,
             }}/> 
 
 

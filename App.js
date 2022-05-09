@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, TextInput } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
 import  AppLoading  from "expo-app-loading";
 import NavigateMenu  from "./router/navigate";
 
@@ -27,7 +28,11 @@ export default function App() {
   
   if(fontsLoaded) {
     return (
-      <NavigateMenu/> 
+      <>
+        <StatusBar style="light" />
+
+        <NavigateMenu/> 
+      </>
     )
 
   } else {
