@@ -40,16 +40,15 @@ export default function ReqContext({children}) {
             "username": email
         }).then(res => {
           setUserInfo(res.data.result.token)
-          // AsyncStorage.setItem('@token', userInfo);
+          AsyncStorage.setItem('@token', '555');
           console.log(userInfo)
-          // console.log(AsyncStorage.getItem('@token'))
+          console.log(showAsyncStorageContentInDev())
           setIsLoading(false);
         }).catch(err => {
           console.log(`register error ${err}`);
           setIsLoading(false);
         });
   }
-
 
   return (
     <LocalContext.Provider 

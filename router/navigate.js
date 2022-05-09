@@ -19,7 +19,7 @@ export default function navigate({navigation}) {
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: true}}>
-        {userInfo 
+        {userInfo
             ? 
         (<Stack.Screen
                 name='Home'
