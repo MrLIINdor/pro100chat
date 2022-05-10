@@ -6,12 +6,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ReqContext({children}) {
 
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState({});
+  const [chatInfo, setChatInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
 
   const register = (email, password) => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     axios
         .post('https://pro100chat.herokuapp.com/api/v1/auth/signup', {
@@ -31,18 +32,17 @@ export default function ReqContext({children}) {
 
 
 
-  const login = (email, password) => {
-    setIsLoading(true)
+  const login= (email, password) => {
+    setIsLoading(true);
 
     axios
         .post('https://pro100chat.herokuapp.com/api/v1/auth/signin', {
             "password": password,
             "username": email
         }).then(res => {
-          setUserInfo(res.data.result.token)
-          AsyncStorage.setItem('@token', '555');
+          setUserInfo(res.data.result)
+          AsyncStorage.setItem('@token', userInfo.token);
           console.log(userInfo)
-          console.log(showAsyncStorageContentInDev())
           setIsLoading(false);
         }).catch(err => {
           console.log(`register error ${err}`);
@@ -50,12 +50,34 @@ export default function ReqContext({children}) {
         });
   }
 
+
+
+  const getAllChat = () => {
+    setIsLoading(true)
+
+    axios
+        .get('https://pro100chat.herokuapp.com/api/v1/chats', {
+          headers: { Authorization: `Bearer ${AsyncStorage.getItem('@token')}` }
+        }).then(res => {
+          setChatInfo(res.data.result)
+          console.log(chatInfo)
+          setIsLoading(false);
+        }).catch(err => {
+          console.log(`register error ${err}`);
+          setIsLoading(false);
+        });
+  }
+
+
   return (
     <LocalContext.Provider 
       value={{
         isLoading,
+        userInfo,
+        chatInfo,
         register,
         login,
+        getAllChat,
         }}>
       {children}
     </LocalContext.Provider>

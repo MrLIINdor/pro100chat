@@ -12,13 +12,14 @@ export default function SingIn({navigation}) {
   const [password, onChangePassword] = useState(null);
   const {isLoading, login} = useContext(LocalContext)
 
+
   function getLogIn(){
     login(email, password)
   }
 
   const loadSubAuth = () => {
     navigation.navigate('SingUp')
-}
+  }
 
 
   return (

@@ -11,46 +11,45 @@ const Stack = createStackNavigator()
 
 
 
-export default function navigate({navigation}) {
+export default function navigate() {
 
-    const {isLoading, userInfo} = useContext(LocalContext)
+    const {userInfo} = useContext(LocalContext)
 
 
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: true}}>
-        {userInfo
-            ? 
-        (<Stack.Screen
-                name='Home'
+            {userInfo.token ?
+            (<Stack.Screen
+                name='AllChats'
                 component={AllChats}
                 options={{
                     title: '',
                     headerShown: false,
                 }}/>)
-            : 
-        (<>
-            <Stack.Screen
-                name='SingIn'
-                component={SingIn}
-                options={{
-                    title: '',
-                    headerShown: false,
-                }}/>
 
-            <Stack.Screen
-                name='SingUp'
-                component={SingUp}
-                options={{
-                    title: 'Регистрация',
-                    headerStyle: {backgroundColor: '#2E303E', shadowColor: '#2E303E'},
-                    headerTintColor: '#01CC8E',
-                    headerTitleStyle: {fontSize: 17, color: '#01CC8E'},
-                }}/>
-        </>)
-        }
+            :
 
+            (<>
+                <Stack.Screen
+                    name='SingIn'
+                    component={SingIn}
+                    options={{
+                        title: '',
+                        headerShown: false,
+                    }}/>
 
+                <Stack.Screen
+                    name='SingUp'
+                    component={SingUp}
+                    options={{
+                        title: 'Регистрация',
+                        headerStyle: {backgroundColor: '#2E303E', shadowColor: '#2E303E'},
+                        headerTintColor: '#01CC8E',
+                        headerTitleStyle: {fontSize: 17, color: '#01CC8E'},
+                    }}/>
+            </>)
+            }
         </Stack.Navigator>
     </NavigationContainer>
   )
