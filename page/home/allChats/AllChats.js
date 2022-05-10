@@ -1,22 +1,26 @@
 import { View, Text } from 'react-native'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { LocalContext } from '../../../src/localContext';
+import MainChat from '../../../components/mainChat/MainChat'
 import styles from './AllChats.scss'
+
 
 
 export default function AllChats({navigation}) {
 
   const {chatInfo, getAllChat } = useContext(LocalContext)
 
-  function get() {
+  useEffect(() => {
     getAllChat()
-  }
+  }, [])
+  
 
   return (
-    <View style={styles.block}>
-      <Text onPress={get}>AllChats</Text>
-      
-      <Text>{chatInfo.content[1].name}</Text>
+    <View style={styles.block_container}>
+      {chatInfo.content.map(({ id, name }) => (
+        <MainChat 
+          title={name}/>
+      ))}
     </View>
   )
 }

@@ -4,6 +4,8 @@ import { LocalContext } from '../../src/localContext.js';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+
 export default function ReqContext({children}) {
 
   const [userInfo, setUserInfo] = useState({});

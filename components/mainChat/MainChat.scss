@@ -1,0 +1,22 @@
+@import  '../../assets/colors/colors';
+
+
+.block{
+    width: 90%;
+    height: 90px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5%;
+    margin-bottom: 3%;
+    align-items:center;
+    background-color: $dark-black;
+    flex-direction: row;
+    border-radius: 1px;
+}
+
+.title{
+    padding-left: 3%;
+    font-family: 'Rubik_500Medium';
+    font-size: 15px;
+    color: $white;
+}
