@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native'
+import { Text, Pressable } from 'react-native'
 import React from 'react'
 import { SvgXml } from 'react-native-svg';
 import styles from './MainChat.scss'

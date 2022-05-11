@@ -35,9 +35,7 @@ export default function App() {
     )
 
   } else {
-    return (
-      <AppLoading onError={console.warn()}/>
-    )
+    return ( <AppLoading onError={console.warn()}/> )
   }
 
 }

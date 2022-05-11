@@ -1,0 +1,17 @@
+@import  '../../assets/colors/colors';
+
+
+.modal{
+    background-color: $black-opacity;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_content{
+    padding: 15px;
+    border-radius: 1px;
+    background-color: #151c24;
+    align-items: center;
+}

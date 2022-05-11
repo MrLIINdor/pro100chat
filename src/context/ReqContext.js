@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function ReqContext({children}) {
 
   const [userInfo, setUserInfo] = useState({});
-  const [chatInfo, setChatInfo] = useState({});
+  const [chatInfo, setChatInfo] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
 

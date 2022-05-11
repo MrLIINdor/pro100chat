@@ -19,10 +19,9 @@ export default function SingUp({navigation}) {
       }
     }
 
-  return (
-    <>
-      <Spinner visible={isLoading}/>
-
+    
+  if(!isLoading) {
+    return(
       <MainSing
         mainTitle={'Регистрация?'}
         subTitle={'Готов погрузится в мир чатинга ? настало время пройти регистрацию'}
@@ -34,6 +33,9 @@ export default function SingUp({navigation}) {
         onChangePassword={onChangePassword}>
         
       </MainSing>
-    </>
-  )
+    )
+
+  }else{
+    return ( <Spinner visible={true}/> )
+  }
 }

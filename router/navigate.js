@@ -19,7 +19,7 @@ export default function navigate() {
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: true}}>
-            {userInfo.token ?
+            {!userInfo.token ?
             (<Stack.Screen
                 name='AllChats'
                 component={AllChats}

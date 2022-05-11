@@ -37,7 +37,8 @@ export default function MainSing(props) {
             placeholder={'Пароль'}
             placeholderTextColor="#fffc"
             onChangeText={props.onChangePassword}
-            value={props.password}/>
+            value={props.password}
+            secureTextEntry/>
 
           {props.children}
         </View>

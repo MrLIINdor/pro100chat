@@ -1,0 +1,61 @@
+@import  '../../assets/colors/colors';
+
+
+
+.block_modal{
+    display: flex;
+    justify-content: space-around;
+    height: 260px;
+    width: 280px;
+}
+
+
+.title{
+    font-family: 'Rubik_600SemiBold';
+    font-size: 17px;
+    color: $white;
+}
+
+
+.block_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $green;
+    height: 40px;
+    width: 110px;
+}
+
+
+.button_title{
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    font-family: 'Rubik_600SemiBold';
+}
+
+
+.input{
+    font-size: 17;
+    padding-top: 15;
+    padding-bottom: 15;
+    border-radius: 1px;
+    border: $white-light;
+    border-bottom-width: 1;
+    border-left-width: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+.input_pass{
+    @extend .input;
+    font-family: 'Rubik_400Regular';
+    color: white;
+}
