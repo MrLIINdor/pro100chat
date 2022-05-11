@@ -13,13 +13,13 @@ const Stack = createStackNavigator()
 
 export default function navigate() {
 
-    const {userInfo} = useContext(LocalContext)
+    const { userInfo } = useContext(LocalContext)
 
 
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: true}}>
-            {!userInfo.token ?
+            {userInfo.token ?
             (<Stack.Screen
                 name='AllChats'
                 component={AllChats}

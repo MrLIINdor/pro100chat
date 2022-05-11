@@ -14,12 +14,26 @@ import { svg } from '../../../assets/images/localSvg';
 
 export default function AllChats({navigation}) {
 
-  const { chatInfo, getAllChat } = useContext(LocalContext)
+  const { chatInfo, getAllChat, creactChat } = useContext(LocalContext)
   const [modalActive, setModalActive] = useState(false)
+  const [nameChat, onNameChat] = useState('');
 
+  
   useEffect(() => {
     getAllChat()
   }, [])
+
+
+  // setInterval(getAllChat(), 300000)
+
+  function closeModal(){
+    setModalActive(false)
+    onNameChat('')
+  }
+
+  function creactUserChat(){
+    creactChat(nameChat)
+  }
   
 
   if(chatInfo){
@@ -30,7 +44,12 @@ export default function AllChats({navigation}) {
         <ChatModal 
           mainTitle={'Создать чат'}
           placeholder={'Название'}
-          titleButton={'Создать'}
+          closeButton={'Закрыть'}
+          creactButton={'Создать'}
+          onClosePress={closeModal}
+          onCreactPress={creactUserChat}
+          onChangeText={onNameChat}
+          value={nameChat}
           active={modalActive} 
           setActive={setModalActive}/>
 

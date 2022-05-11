@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LocalContext } from '../../src/localContext.js';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -59,7 +59,8 @@ export default function ReqContext({children}) {
 
     axios
         .get('https://pro100chat.herokuapp.com/api/v1/chats', {
-          headers: { Authorization: `Bearer ${AsyncStorage.getItem('@token')}` }
+          headers: { Authorization: `Bearer ${userInfo.token}` }, 
+
         }).then(res => {
           setChatInfo(res.data.result)
           console.log(chatInfo)
@@ -71,6 +72,49 @@ export default function ReqContext({children}) {
   }
 
 
+  
+  const creactChat = (nameChat) => {
+    setIsLoading(true)
+
+    axios
+        .post('https://pro100chat.herokuapp.com/api/v1/chats',  {
+          name: nameChat,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }).then(res => {
+          console.log(`Статус: ${res.data.status}, ${res.data.message}`)
+          setIsLoading(false);
+        }).catch(err => {
+          console.log(`register error ${err}`);
+          setIsLoading(false);
+        });
+  }
+
+
+
+  // const isLoggedIn = async () => {
+  //   try {
+  //     let userInfo = await AsyncStorage.getItem('@token');
+  //     userInfo = JSON.parse(userInfo);
+
+  //     if (userInfo) {
+  //       setUserInfo(userInfo);
+  //     }
+
+  //   } catch (e) {
+  //     console.log(`is logged in error ${e}`);
+  //   }
+  // };
+
+
+  // useEffect(() => {
+  //   isLoggedIn();
+  // }, []);
+
+
   return (
     <LocalContext.Provider 
       value={{
@@ -80,6 +124,7 @@ export default function ReqContext({children}) {
         register,
         login,
         getAllChat,
+        creactChat,
         }}>
       {children}
     </LocalContext.Provider>

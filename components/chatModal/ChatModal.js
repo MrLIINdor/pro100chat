@@ -7,6 +7,8 @@ import styles from './ChatModal.scss'
 
 
 export default function ChatModal(props) {
+
+
   return (
     <MainModal active={props.active} setActive={props.setActive}>
       <View style={styles.block_modal}>
@@ -16,12 +18,25 @@ export default function ChatModal(props) {
             <TextInput 
                 multiline 
                 placeholder={props.placeholder} 
+                onChangeText={props.onChangeText}
+                value={props.value}
                 placeholderTextColor="#fffc"
                 style={styles.input_pass}/>
           </View>
 
           <View style={styles.block_button}>
-            <MainButton onPress={props.onPress} titleButton={props.titleButton} styleBlockButton={styles.button} styleTitleButton={styles.button_title}/>
+            <MainButton 
+              onPress={props.onClosePress} 
+              titleButton={props.closeButton} 
+              styleBlockButton={styles.button_close} 
+              styleTitleButton={styles.button_title}/>
+
+            <MainButton 
+              onPress={props.onCreactPress} 
+              titleButton={props.creactButton} 
+              styleBlockButton={styles.button_creact} 
+              styleTitleButton={styles.button_title}/>
+
           </View>
         </View>
     </MainModal>

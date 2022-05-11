@@ -19,16 +19,26 @@
 
 .block_button{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    flex-direction: row;
 }
 
 
-.button{
+.button_creact{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $green;
+    height: 40px;
+    width: 110px;
+}
+
+.button_close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark;
     height: 40px;
     width: 110px;
 }
