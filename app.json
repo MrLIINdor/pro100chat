@@ -22,7 +22,7 @@
     "android": {
       "package": "com.coolteam.coolteam",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo-app.png",
         "backgroundColor": "#FFFFFF"
       }
     },
