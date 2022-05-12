@@ -7,7 +7,8 @@
     height: 100%;
     padding-top: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 3%;
     align-items: center;
     background-color: $dark;
 }
@@ -16,4 +17,46 @@
     color: $white;
     font-size: 19px;
     font-family: 'Rubik_600SemiBold';
+}
+
+
+.input{
+    background-color: $dark-black;
+    height: 50px;
+    width: 80%;
+    font-size: 16;
+    padding-top: 15;
+    padding-left: 15;
+    padding-bottom: 15;
+    border-radius: 1px;
+}
+
+.input_pass{
+    @extend .input;
+    font-family: 'Rubik_400Regular';
+    color: white;
+}
+
+
+.block_input{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+    flex-direction: row;
+}
+
+
+.button{
+    width: 50px;
+    height: 50px;
+    background-color: $dark-black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.block_scroll{
+    width: 90%;
 }

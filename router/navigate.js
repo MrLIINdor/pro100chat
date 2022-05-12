@@ -34,8 +34,10 @@ export default function navigate() {
                     name='Mess'
                     component={Mess}
                     options={{
-                        title: '',
-                        headerShown: false,
+                        title: 'Каналы',
+                        headerStyle: {backgroundColor: '#2E303E', shadowColor: '#2E303E'},
+                        headerTintColor: '#01CC8E',
+                        headerTitleStyle: {fontSize: 17, color: '#01CC8E'},
                     }}/>
             </>)
 

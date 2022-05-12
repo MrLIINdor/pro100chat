@@ -10,6 +10,7 @@ export default function ReqContext({children}) {
 
   const [userInfo, setUserInfo] = useState({});
   const [chatInfo, setChatInfo] = useState();
+  const [messInfo, setMessInfo] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -33,6 +34,7 @@ export default function ReqContext({children}) {
   }
 
 
+
   const login= (email, password) => {
     setIsLoading(true);
 
@@ -51,10 +53,13 @@ export default function ReqContext({children}) {
         });
   }
 
+
+
   const logout = () => {
     setUserInfo({})
   }
   
+
 
   const getAllChat = () => {
     setIsLoading(true)
@@ -97,6 +102,47 @@ export default function ReqContext({children}) {
 
 
 
+  const getAllMess = (id) => {
+    setIsLoading(true)
+    // console.log(id)
+    axios
+        .get(`https://pro100chat.herokuapp.com/api/v1/chats/${id}/messages?page=0&size=20`, {
+          headers: { Authorization: `Bearer ${userInfo.token}` }, 
+
+        }).then(res => {
+          setMessInfo(res.data.result)
+          console.log(messInfo)
+          setIsLoading(false);
+        }).catch(err => {
+          console.log(`register error ${err}`);
+          setIsLoading(false);
+        });
+  }
+
+
+
+  const creactMess = (mes, chatId) => {
+    setIsLoading(true)
+
+    axios
+        .post(`https://pro100chat.herokuapp.com/api/v1/chats/${chatId}/send`,  {
+          chatId: chatId,
+          content: mes,
+          id: userInfo.id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }).then(res => {
+          console.log(`Статус: ${res.data.status}, ${res.data.message}`)
+          setIsLoading(false);
+        }).catch(err => {
+          console.log(`register error ${err}`);
+          setIsLoading(false);
+        });
+  }
+
   // const isLoggedIn = async () => {
   //   try {
   //     let userInfo = await AsyncStorage.getItem('@token');
@@ -123,11 +169,14 @@ export default function ReqContext({children}) {
         isLoading,
         userInfo,
         chatInfo,
+        messInfo,
         register,
         login,
         logout,
         getAllChat,
         creactChat,
+        getAllMess,
+        creactMess,
         }}>
       {children}
     </LocalContext.Provider>
