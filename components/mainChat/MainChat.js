@@ -9,7 +9,7 @@ import { svg } from '../../assets/images/localSvg';
 
 export default function MainChat(props) {
   return (
-    <Pressable style={styles.block}>
+    <Pressable onPress={props.onPress} style={styles.block}>
         <SvgXml style={styles.logo} xml={svg.Hashtag} />
         <Text style={styles.title}>{props.title}</Text>
     </Pressable>

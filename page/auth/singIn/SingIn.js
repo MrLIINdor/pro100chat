@@ -17,7 +17,7 @@ export default function SingIn({navigation}) {
     login(email, password)
   }
 
-  const loadSubAuth = () => {
+  const loadSingUp = () => {
     navigation.navigate('SingUp')
   }
 
@@ -38,7 +38,7 @@ export default function SingIn({navigation}) {
 
 
           <View style={styles.block_sinup}>
-            <Text onPress={loadSubAuth} style={styles.title_sinup}>Создать АККаунт ?</Text>
+            <Text onPress={loadSingUp} style={styles.title_sinup}>Создать АККаунт ?</Text>
           </View>
       </MainSing>
     </>

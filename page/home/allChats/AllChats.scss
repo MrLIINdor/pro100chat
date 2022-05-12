@@ -29,9 +29,19 @@
 .block_button{
     width: 100%;
     margin-bottom: 10%;
-    margin-right: 10%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    border-color: $green;
+    border-bottom-width: 1px;
+}
+
+.block_button_title{
+    color: $white;
+    font-size: 19px;
+    font-family: 'Rubik_600SemiBold';
 }

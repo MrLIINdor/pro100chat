@@ -14,7 +14,7 @@ import { svg } from '../../../assets/images/localSvg';
 
 export default function AllChats({navigation}) {
 
-  const { chatInfo, getAllChat, creactChat } = useContext(LocalContext)
+  const { chatInfo, getAllChat, creactChat, logout } = useContext(LocalContext)
   const [modalActive, setModalActive] = useState(false)
   const [nameChat, onNameChat] = useState('');
 
@@ -24,7 +24,7 @@ export default function AllChats({navigation}) {
   }, [])
 
 
-  // setInterval(getAllChat(), 300000)
+  // setInterval(getAllChat(), 100000)
 
   function closeModal(){
     setModalActive(false)
@@ -33,6 +33,16 @@ export default function AllChats({navigation}) {
 
   function creactUserChat(){
     creactChat(nameChat)
+    setModalActive(false)
+  }
+
+
+  function logoutUser(){
+    logout()
+  }
+
+  const loadMess = (id) => {
+    navigation.navigate('Mess', {id})
   }
   
 
@@ -55,14 +65,22 @@ export default function AllChats({navigation}) {
 
 
         <View style={styles.block_button}>
-            <Pressable onPress={() => setModalActive(true)} style={styles.button}>
-              <SvgXml style={styles.logo} xml={svg.Plus} />
-            </Pressable>
+          <Pressable onPress={logoutUser} style={styles.button}>
+            <SvgXml style={styles.logo} xml={svg.Logout} />
+          </Pressable>
+
+
+          <Text style={styles.block_button_title}>Каналы</Text>
+
+          <Pressable onPress={() => setModalActive(true)} style={styles.button}>
+            <SvgXml style={styles.logo} xml={svg.Plus} />
+          </Pressable>
         </View>
   
         <ScrollView style={styles.block_scroll}>
           {chatInfo.content.map(({ id, name }) => 
             <MainChat 
+              onPress={() =>loadMess(id)}
               title={name}/>
           )}
         </ScrollView>

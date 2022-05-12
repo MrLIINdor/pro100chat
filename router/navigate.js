@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SingUp from '../page/auth/singUp/singUp';
 import SingIn from '../page/auth/singIn/SingIn';
 import AllChats from '../page/home/allChats/AllChats';
+import Mess from '../page/home/messers/Mess';
 import { LocalContext } from '../src/localContext';
 
 const Stack = createStackNavigator()
@@ -20,13 +21,23 @@ export default function navigate() {
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: true}}>
             {userInfo.token ?
-            (<Stack.Screen
-                name='AllChats'
-                component={AllChats}
-                options={{
-                    title: '',
-                    headerShown: false,
-                }}/>)
+            (<>
+                <Stack.Screen
+                    name='AllChats'
+                    component={AllChats}
+                    options={{
+                        title: '',
+                        headerShown: false,
+                    }}/>
+
+                <Stack.Screen
+                    name='Mess'
+                    component={Mess}
+                    options={{
+                        title: '',
+                        headerShown: false,
+                    }}/>
+            </>)
 
             :
 

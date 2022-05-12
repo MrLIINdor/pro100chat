@@ -33,7 +33,6 @@ export default function ReqContext({children}) {
   }
 
 
-
   const login= (email, password) => {
     setIsLoading(true);
 
@@ -43,7 +42,7 @@ export default function ReqContext({children}) {
             "username": email
         }).then(res => {
           setUserInfo(res.data.result)
-          AsyncStorage.setItem('@token', userInfo.token);
+          AsyncStorage.setItem('token', JSON.stringify(value));
           console.log(userInfo)
           setIsLoading(false);
         }).catch(err => {
@@ -52,7 +51,10 @@ export default function ReqContext({children}) {
         });
   }
 
-
+  const logout = () => {
+    setUserInfo({})
+  }
+  
 
   const getAllChat = () => {
     setIsLoading(true)
@@ -123,6 +125,7 @@ export default function ReqContext({children}) {
         chatInfo,
         register,
         login,
+        logout,
         getAllChat,
         creactChat,
         }}>
